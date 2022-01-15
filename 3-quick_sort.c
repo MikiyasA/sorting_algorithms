@@ -19,34 +19,34 @@ q_sort(array, 0, size - 1, size);
  */
 void q_sort(int *a, int low, int high, int size)
 {
-  int p, w, i;
-  int tmp;
-  if (low < high)
-    {
-      p = high;
-      w = low;
-      for (i = low; i < high; i++)
-	{
-	  if (a[i] < a[p])
-	    {
-	      if (i != w)
-		{
-		  tmp = a[i];
-		  a[i] = a[w];
-		  a[w] = tmp;
-		  print_array(a, size);
-		}
-	      w++;
-	    }
-	}
-      if (w != p && a[w] != a[p])
-	{
-	  tmp = a[w];
-	  a[w] = a[p];
-	  a[p] = tmp;
-	  print_array(a, size);
-	}
-      q_sort(a, low, w - 1, size);
-      q_sort(a, w + 1, high, size);
-    }
+int p, w, i;
+int tmp;
+if (low < high)
+{
+p = high;
+w = low;
+for (i = low; i < high; i++)
+{
+if (a[i] < a[p])
+{
+if (i != w)
+{
+tmp = a[i];
+a[i] = a[w];
+a[w] = tmp;
+print_array(a, size);
+}
+w++;
+}
+}
+if (w != p && a[w] != a[p])
+{
+tmp = a[w];
+a[w] = a[p];
+a[p] = tmp;
+print_array(a, size);
+}
+q_sort(a, low, w - 1, size);
+q_sort(a, w + 1, high, size);
+}
 }
